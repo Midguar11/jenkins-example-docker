@@ -9,6 +9,17 @@ pipeline {
           curl --version
         '''
       }
+    
+     stage('Test Docker Slave'){
+            agent { 
+                label 'DockerAgent01'
+            }
+            steps{
+                sh 'docker -v'
+            }
+        }
+      
+      
     }
   }
 }
